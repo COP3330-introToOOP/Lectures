@@ -21,11 +21,19 @@ private:
   int num_clients;
     /* data */
 public:
+  PhoneDict();
+  ~PhoneDict();
   void set_info();
   int print_by_name();
   void edit_client_name(int position);
   void print_list();
 };
+
+
+PhoneDict::~PhoneDict()
+{
+  cout<<"Usage Memory Free"<<endl;
+}
 
 void PhoneDict::set_info()
 {
