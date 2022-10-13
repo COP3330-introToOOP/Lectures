@@ -9,12 +9,32 @@
 
 using namespace std;
 
+struct Machine
+{
+   string machine_id;
+   string location;
+
+   Machine(string id = "236-90-0", string loct = "Tallahassee, FL")
+   {
+     machine_id = id;
+     location = loct;
+   }
+};
+
+void print_machine_infor(const Machine &M)
+{
+   printf("Location info: Machine- %s, location:- %s\n",M.machine_id.c_str(),M.location.c_str());
+}
+
+
+
 int main()
 {
   int initialCurrentBalance;
   int expression;
   int amount;
   string answer;
+  Machine machine;
 
   string name_client = "Carlos-Theran";
   int ssn = 14897;
@@ -61,6 +81,7 @@ int main()
     cin >> answer;
   }
   
+  print_machine_infor(machine);
   BankAccount2.print_inf();
 
 }
