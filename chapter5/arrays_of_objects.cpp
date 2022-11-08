@@ -62,6 +62,13 @@ int return_index_BankAccount(int num_account, BankAccount banks[])
     return index;
 }
 
+void print_machine_inf(const Machine &M)
+{
+  printf("Local information: Machine- %s, location- %s\n",M.machine_id.c_str(),M.location.c_str());
+}
+
+
+
 
 int main()
 {
@@ -90,10 +97,10 @@ int main()
 
     if(answer == "yes")
     {
-        cout<<"Select the city for the transaction";
+        cout<<"Select the city for the transaction ";
         cin >> city;
         machine_index = return_index_machine(city,machine);
-        cout<<"Type Bank Account for transaction: "<<endl;
+        cout<<"Type Bank Account for transaction: ";
         cin >> bank_account;
         bank_index = return_index_BankAccount(bank_account, b_account);
     }
@@ -114,7 +121,7 @@ int main()
         case 1:
             cout<<"Write the total amount to deposit: $";
             cin >> amount;
-            b_account[bank_account].deposit(amount);
+            b_account[bank_index].deposit(amount);
             break;
         case 2:
             cout<<"Write the total amount to withdraw: $";
@@ -125,13 +132,13 @@ int main()
             cout<<"Do you wnat to do nay other transaction?: ";
             break;
         }
-
-
+        cout<<"Do you wnat to do any other transaction? ";
+        cin >> answer;
     }
 
 
-
-
+  print_machine_inf(machine[machine_index]);
+  b_account[bank_index].print_inf();
   return 0;
 }
 
