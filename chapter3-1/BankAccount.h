@@ -8,18 +8,20 @@ class BankAccount
        int numberOfTransaction;
        Client client;
     public:
-       BankAccount();
+       BankAccount(){};
        ~BankAccount(){}
        BankAccount(int pCurrentBalance);
        BankAccount(int pCurrentBalance,string name_client, int ssn, int account_num);
        int get_CurrentBalance();
        int get_NumberOfTransaction();
+       int get_AccountNum();
        void bank_information();
        void deposit(int amount);
        void withdraw(int amount);
        void set_CurrentBalance(int amount);
        void set_NumberOfTransaction(int amount);
        void print_inf();
+       void set_BankFullInfo(int pCurrentBalance,string name_client, int ssn, int account_num);
 
 };
 
@@ -36,6 +38,20 @@ BankAccount::BankAccount(int pCurrentBalance)
 {
   currentBalance = pCurrentBalance;
   numberOfTransaction = 0;
+}
+
+void BankAccount::set_BankFullInfo(int pCurrentBalance,string name_client, int ssn, int account_num)
+{
+  currentBalance = pCurrentBalance;
+  numberOfTransaction = 0;
+  client.set_BankAccountNum(account_num);
+  client.set_ClientName(name_client);
+  client.set_SSN(ssn);
+}
+
+int BankAccount::get_AccountNum()
+{
+  return client.get_BankAccountNum();
 }
 
 void BankAccount::deposit(int amount)
